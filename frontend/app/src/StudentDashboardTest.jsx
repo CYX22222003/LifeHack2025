@@ -18,7 +18,7 @@ const columns = [
   { field: "suggestion", headerName: "LLM Suggestion", flex: 2 },
 ];
 
-function StudentDashboard() {
+function StudentDashboardTest() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -72,4 +72,4 @@ function StudentDashboard() {
   );
 }
 
-export default StudentDashboard;
+export default StudentDashboardTest;
