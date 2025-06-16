@@ -1,6 +1,7 @@
 [
   {
     "name": "Alice",
+    "gender": "female",
     "exams": {
       "midterm": { "score": 85, "feedback": "Went well" },
       "final": { "score": 90, "feedback": "Tough but fair" },
@@ -9,6 +10,7 @@
   },
   {
     "name": "Bob",
+    "gender": "male",
     "exams": {
       "midterm": { "score": 78, "feedback": "Could have studied more" },
       "final": { "score": 82, "feedback": "Better than midterm" },
@@ -17,6 +19,7 @@
   },
   {
     "name": "Charlie",
+    "gender": "male",
     "exams": {
       "midterm": { "score": 92, "feedback": "Felt confident" },
       "final": { "score": 89, "feedback": "A bit tricky" },
@@ -25,6 +28,7 @@
   },
   {
     "name": "Diana",
+    "gender": "female",
     "exams": {
       "midterm": { "score": 70, "feedback": "Not enough time" },
       "final": { "score": 75, "feedback": "Improved over time" },
@@ -33,6 +37,7 @@
   },
   {
     "name": "Ethan",
+    "gender": "male",
     "exams": {
       "midterm": { "score": 88, "feedback": "Good preparation" },
       "final": { "score": 84, "feedback": "A bit stressful" },
@@ -41,6 +46,7 @@
   },
   {
     "name": "Fiona",
+    "gender": "female",
     "exams": {
       "midterm": { "score": 65, "feedback": "Was sick" },
       "final": { "score": 70, "feedback": "Managed better" },
@@ -49,6 +55,7 @@
   },
   {
     "name": "George",
+    "gender": "male",
     "exams": {
       "midterm": { "score": 91, "feedback": "Felt great" },
       "final": { "score": 93, "feedback": "Best paper yet" },
@@ -57,6 +64,7 @@
   },
   {
     "name": "Hannah",
+    "gender": "female",
     "exams": {
       "midterm": { "score": 77, "feedback": "Forgot some topics" },
       "final": { "score": 79, "feedback": "Revised properly" },
@@ -65,6 +73,7 @@
   },
   {
     "name": "Ian",
+    "gender": "male",
     "exams": {
       "midterm": { "score": 83, "feedback": "Okay performance" },
       "final": { "score": 86, "feedback": "Pretty solid" },
@@ -73,6 +82,7 @@
   },
   {
     "name": "Jade",
+    "gender": "male",
     "exams": {
       "midterm": { "score": 89, "feedback": "Smooth paper" },
       "final": { "score": 91, "feedback": "Loved the questions" },
@@ -80,3 +90,4 @@
     }
   }
 ]
+
