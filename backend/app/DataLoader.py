@@ -5,7 +5,7 @@ import os
 class DataLoader:
     def __init__(self, path):
         with open(path, 'r') as f:
-            self.data = json.loads(f.read())
+            self.data = json.load(f)
 
     def get_distribution(self, exam_name):
         all_scores = []
@@ -21,11 +21,18 @@ class DataLoader:
         return [low, lower_q, median, upper_q, high]
     
     def get_score(self, name, exam_name):
-        return self.data[name]["exams"][exam_name]["score"]
+        for student in self.data:
+            if student["name"] == name:
+                return student ["exams"][exam_name]["score"]
+        else:
+            raise Exception (f"Student {name} is not found")
     
     def get_feedback(self, name, exam_name):
-        return self.data[name]["exams"][exam_name]["feedback"]
-    
+        for student in self.data:
+            if student["name"] == name:
+                return student ["exams"][exam_name]["feedback"]
+        raise Exception (f"Student {name} is not found")
+
     def get_distribution_text(self, exam_name):
         distribution = self.get_distribution(exam_name)
         return f"Distribution for {exam_name}: The lowest score is {distribution[0]}, the lower quantile is {distribution[1]}, the median is {distribution[2]}, the upper quantile is {distribution[3]}, the highest score is {distribution[4]}. \n"
@@ -38,10 +45,34 @@ class DataLoader:
         for exam in exam_names:
             result += self.get_distribution_text(exam)
         return result
+    
+    def get_student_text_one_exam(self, name, exam):
+        score = self.get_score(name, exam)
+        feedback = self.get_feedback(name,exam)
+        return f"{name} score {score} for {exam}, and his/her feedback for the exam is {feedback}. \n"
+    
+    def get_student_text(self, name):
+        result = ''
+        exam_names = set()
+        for student in self.data:
+            exam_names.update(student["exams"].keys())
+
+        for exam in exam_names:
+            result += self.get_student_text_one_exam(name, exam)
+        return result
+    
+    def get_all_student_text(self):
+        result = ''
+        for student in self.data:
+            result += self.get_student_text(student['name'])
+        return result
+    
 
 
 dl = DataLoader("SampleData.json")
 print(dl.get_distribution_text_all())
+print('-------------------------------------')
+print(dl.get_all_student_text())
     
 
     
