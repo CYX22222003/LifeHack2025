@@ -5,7 +5,6 @@ import os
 class DataLoader:
     def __init__(self, path):
         with open(path, 'r') as f:
-            
             self.data = json.loads(f.read())
 
     def get_distribution(self, exam_name):
@@ -29,7 +28,7 @@ class DataLoader:
     
     def get_distribution_text(self, exam_name):
         distribution = self.get_distribution(exam_name)
-        return f"Distribution for {exam_name}. The lowest score is {distribution[0]}, the lower quantile is {distribution[1]}, the median is {distribution[2]}, the upper quantile is {distribution[3]}, the highest score is {distribution[4]}. \n"
+        return f"Distribution for {exam_name}: The lowest score is {distribution[0]}, the lower quantile is {distribution[1]}, the median is {distribution[2]}, the upper quantile is {distribution[3]}, the highest score is {distribution[4]}. \n"
     
     def get_distribution_text_all(self):
         result = ''
