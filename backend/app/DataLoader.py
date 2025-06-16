@@ -68,7 +68,7 @@ class DataLoader:
         return result
     
 
-
+## Test for dataloader
 dl = DataLoader("SampleData.json")
 print(dl.get_distribution_text_all())
 print('-------------------------------------')
