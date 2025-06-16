@@ -42,6 +42,23 @@ class DataLoader:
                     return "her"
                 else:
                     return "its"
+                
+    def get_exam(self, exam):
+        scores = []
+        for student in self.students:
+            scores.append(student["exams"][exam]["score"])
+        data = {"exam": exam, "scores": scores}
+        return data
+    
+    def get_all_exams(self):
+        result = []
+        exam_names = set()
+        for student in self.students:
+            exam_names.update(student["exams"].keys())
+        for exam in exam_names:
+            result.append(self.get_exam(exam))
+        return result
+        
 
     def get_distribution_text(self, exam_name):
         distribution = self.get_distribution(exam_name)
@@ -78,13 +95,13 @@ class DataLoader:
             result += self.get_student_text(student['name'])
         return result
     
-
 ## Test for dataloader
 dl = DataLoader("SampleData.json")
 print(dl.get_distribution_text_all())
 print('-------------------------------------')
 print(dl.get_all_student_text())
-    
+print('-------------------------------------')
+print(dl.get_all_exams())
 
     
 

@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, current_app
 import json
 
 api = Blueprint("api", __name__, url_prefix="/api")
@@ -18,7 +18,7 @@ def get_all():
     Gets basic information (name, gender, feedback, scores) of students to display in the dashboard.
     """
     # pass
-    return json()
+    return jsonify(current_app.dl)
 
 @api.route("/general", methods=["GET"])
 def get_general():
