@@ -1,82 +1,174 @@
-[
-  {
-    "name": "Alice",
-    "exams": {
-      "midterm": { "score": 85, "feedback": "Went well" },
-      "final": { "score": 90, "feedback": "Tough but fair" },
-      "practical": { "score": 88, "feedback": "Hands-on was fun" }
+{
+  "students": [
+    {
+      "name": "Alice",
+      "exams": {
+        "midterm": {
+          "score": 85,
+          "feedback": "Went well"
+        },
+        "final": {
+          "score": 90,
+          "feedback": "Tough but fair"
+        },
+        "practical": {
+          "score": 88,
+          "feedback": "Hands-on was fun"
+        }
+      }
+    },
+    {
+      "name": "Bob",
+      "exams": {
+        "midterm": {
+          "score": 78,
+          "feedback": "Could have studied more"
+        },
+        "final": {
+          "score": 82,
+          "feedback": "Better than midterm"
+        },
+        "practical": {
+          "score": 80,
+          "feedback": "Challenging but doable"
+        }
+      }
+    },
+    {
+      "name": "Charlie",
+      "exams": {
+        "midterm": {
+          "score": 92,
+          "feedback": "Felt confident"
+        },
+        "final": {
+          "score": 89,
+          "feedback": "A bit tricky"
+        },
+        "practical": {
+          "score": 94,
+          "feedback": "Smooth execution"
+        }
+      }
+    },
+    {
+      "name": "Diana",
+      "exams": {
+        "midterm": {
+          "score": 70,
+          "feedback": "Not enough time"
+        },
+        "final": {
+          "score": 75,
+          "feedback": "Improved over time"
+        },
+        "practical": {
+          "score": 78,
+          "feedback": "Learned a lot"
+        }
+      }
+    },
+    {
+      "name": "Ethan",
+      "exams": {
+        "midterm": {
+          "score": 88,
+          "feedback": "Good preparation"
+        },
+        "final": {
+          "score": 84,
+          "feedback": "A bit stressful"
+        },
+        "practical": {
+          "score": 90,
+          "feedback": "Interesting problems"
+        }
+      }
+    },
+    {
+      "name": "Fiona",
+      "exams": {
+        "midterm": {
+          "score": 65,
+          "feedback": "Was sick"
+        },
+        "final": {
+          "score": 70,
+          "feedback": "Managed better"
+        },
+        "practical": {
+          "score": 72,
+          "feedback": "Still tough"
+        }
+      }
+    },
+    {
+      "name": "George",
+      "exams": {
+        "midterm": {
+          "score": 91,
+          "feedback": "Felt great"
+        },
+        "final": {
+          "score": 93,
+          "feedback": "Best paper yet"
+        },
+        "practical": {
+          "score": 89,
+          "feedback": "Well executed"
+        }
+      }
+    },
+    {
+      "name": "Hannah",
+      "exams": {
+        "midterm": {
+          "score": 77,
+          "feedback": "Forgot some topics"
+        },
+        "final": {
+          "score": 79,
+          "feedback": "Revised properly"
+        },
+        "practical": {
+          "score": 76,
+          "feedback": "Confused in some tasks"
+        }
+      }
+    },
+    {
+      "name": "Ian",
+      "exams": {
+        "midterm": {
+          "score": 83,
+          "feedback": "Okay performance"
+        },
+        "final": {
+          "score": 86,
+          "feedback": "Pretty solid"
+        },
+        "practical": {
+          "score": 87,
+          "feedback": "Went fast"
+        }
+      }
+    },
+    {
+      "name": "Jade",
+      "exams": {
+        "midterm": {
+          "score": 89,
+          "feedback": "Smooth paper"
+        },
+        "final": {
+          "score": 91,
+          "feedback": "Loved the questions"
+        },
+        "practical": {
+          "score": 93,
+          "feedback": "Very engaging"
+        }
+      }
     }
-  },
-  {
-    "name": "Bob",
-    "exams": {
-      "midterm": { "score": 78, "feedback": "Could have studied more" },
-      "final": { "score": 82, "feedback": "Better than midterm" },
-      "practical": { "score": 80, "feedback": "Challenging but doable" }
-    }
-  },
-  {
-    "name": "Charlie",
-    "exams": {
-      "midterm": { "score": 92, "feedback": "Felt confident" },
-      "final": { "score": 89, "feedback": "A bit tricky" },
-      "practical": { "score": 94, "feedback": "Smooth execution" }
-    }
-  },
-  {
-    "name": "Diana",
-    "exams": {
-      "midterm": { "score": 70, "feedback": "Not enough time" },
-      "final": { "score": 75, "feedback": "Improved over time" },
-      "practical": { "score": 78, "feedback": "Learned a lot" }
-    }
-  },
-  {
-    "name": "Ethan",
-    "exams": {
-      "midterm": { "score": 88, "feedback": "Good preparation" },
-      "final": { "score": 84, "feedback": "A bit stressful" },
-      "practical": { "score": 90, "feedback": "Interesting problems" }
-    }
-  },
-  {
-    "name": "Fiona",
-    "exams": {
-      "midterm": { "score": 65, "feedback": "Was sick" },
-      "final": { "score": 70, "feedback": "Managed better" },
-      "practical": { "score": 72, "feedback": "Still tough" }
-    }
-  },
-  {
-    "name": "George",
-    "exams": {
-      "midterm": { "score": 91, "feedback": "Felt great" },
-      "final": { "score": 93, "feedback": "Best paper yet" },
-      "practical": { "score": 89, "feedback": "Well executed" }
-    }
-  },
-  {
-    "name": "Hannah",
-    "exams": {
-      "midterm": { "score": 77, "feedback": "Forgot some topics" },
-      "final": { "score": 79, "feedback": "Revised properly" },
-      "practical": { "score": 76, "feedback": "Confused in some tasks" }
-    }
-  },
-  {
-    "name": "Ian",
-    "exams": {
-      "midterm": { "score": 83, "feedback": "Okay performance" },
-      "final": { "score": 86, "feedback": "Pretty solid" },
-      "practical": { "score": 87, "feedback": "Went fast" }
-    }
-  },
-  {
-    "name": "Jade",
-    "exams": {
-      "midterm": { "score": 89, "feedback": "Smooth paper" },
-      "final": { "score": 91, "feedback": "Loved the questions" },
-      "practical": { "score": 93, "feedback": "Very engaging" }
-    }
-  }
-]
+  ]
+}
