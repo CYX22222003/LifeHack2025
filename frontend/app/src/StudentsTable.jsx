@@ -20,12 +20,17 @@ import {
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
+import SuggestionDialog from './SuggestionDialog';
 
 function StudentsTable() {
   const [students, setStudents] = useState([]);
   const [columns, setColumns] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
-  const handleOpenDialog = () => setOpenDialog(true);
+  const [currentStudent, setCurrentStudent] = useState(null);
+  const handleOpenDialog = (name) => {
+    setCurrentStudent(name);
+    setOpenDialog(true);
+  };
   const handleCloseDialog = () => setOpenDialog(false);
 
   useEffect(() => {
@@ -65,8 +70,8 @@ function StudentsTable() {
         field: "suggestion",
         headerName: "LLM Suggestion",
         width: 200,
-        renderCell: () => (
-          <Button variant="outlined" onClick={handleOpenDialog}>
+        renderCell: (params) => (
+          <Button variant="outlined" onClick={() => handleOpenDialog(params.row.name)}>
             View Suggestion
           </Button>
         ),
