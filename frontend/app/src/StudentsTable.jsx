@@ -6,10 +6,10 @@ import {
   Container,
   CssBaseline,
   Dialog,
-  DialogTitle, 
-  DialogContent, 
-  DialogContentText, 
-  DialogActions, 
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
   Drawer,
   List,
   ListItem,
@@ -21,8 +21,6 @@ import {
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 
-const drawerWidth = 240;
-
 function StudentsTable() {
   const [students, setStudents] = useState([]);
   const [columns, setColumns] = useState([]);
@@ -32,7 +30,7 @@ function StudentsTable() {
 
   useEffect(() => {
     axios.get("http://127.0.0.1:5000/api/students").then((res) => {
-       const raw = res.data;
+      const raw = res.data;
       // Flatten data and generate rows
       const rows = raw.map((student, index) => {
         const examsFlat = {};
@@ -78,16 +76,8 @@ function StudentsTable() {
   }, []);
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Student Performance Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
-
+    <React.Fragment>
+      <Toolbar />
       <Dialog open={openDialog} onClose={handleCloseDialog}>
         <DialogTitle>LLM Suggestion</DialogTitle>
         <DialogContent>
@@ -100,45 +90,20 @@ function StudentsTable() {
         </DialogActions>
       </Dialog>
 
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
-        }}
-      >
-        <Toolbar />
-        <Box sx={{ overflow: "auto" }}>
-          <List>
-            {["Dashboard", "Reports", "Settings"].map((text) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
-
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
-        <Container maxWidth="lg">
-          <Paper sx={{ height: 500, p: 2 }}>
-            <Typography variant="h6" gutterBottom>
-              Student Scores
-            </Typography>
-            <DataGrid
-              rows={students}
-              columns={columns}
-              pageSize={5}
-              rowsPerPageOptions={[5]}
-              disableSelectionOnClick
-              sx={{ mt: 2 }}
-            />
-          </Paper>
-        </Container>
-      </Box>
-    </Box>
+      <Container sx={{p: 2 }}>
+        <Typography variant="h6">
+          Student Scores
+        </Typography>
+        <DataGrid
+          rows={students}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          disableSelectionOnClick
+          sx={{ mt: 2}}
+        />
+      </Container>
+    </React.Fragment>
   );
 }
 
