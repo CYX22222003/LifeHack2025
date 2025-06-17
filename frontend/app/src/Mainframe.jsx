@@ -8,6 +8,7 @@ import StatsVisualizations from './StatsVisualizations';
 import StatsExams from './StatsExams.jsx';
 import { LanguageContextProvider } from './language/LanguageContext';
 import LanguageControlButton from './language/LanguageControlButton';
+import OverallComments from './OverallComments.jsx';
 
 // const drawerWidth = 240;
 export default function Mainframe() {
@@ -45,7 +46,7 @@ export default function Mainframe() {
                                 </List>
                             </Box>
                         </Drawer> */}
-                        <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
+                        <Box sx={{ display: "flex", flexDirection: "column", width: "100%", gap: 5 }}>
                             <StatsVisualizations />
                             <StudentsTable />
                             <StatsExams />
