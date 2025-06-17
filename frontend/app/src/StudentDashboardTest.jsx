@@ -2,73 +2,95 @@
 import React from "react";
 import { CssBaseline, Box, Toolbar, Typography, AppBar, Drawer, List, ListItem, ListItemText, Container, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import { useState } from "react";
+import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 
-const drawerWidth = 240;
-
-const students = [
-  { id: 1, name: "Alice", score: 92, comment: "Great improvement!", suggestion: "Keep practicing problem sets." },
-  { id: 2, name: "Bob", score: 75, comment: "Satisfactory performance.", suggestion: "Revise last week's topics." },
-  { id: 3, name: "Charlie", score: 59, comment: "Needs improvement.", suggestion: "Attend office hours regularly." },
-];
-
-const columns = [
-  { field: "name", headerName: "Name", flex: 1 },
-  { field: "score", headerName: "Score", flex: 1 },
-  { field: "comment", headerName: "Comment", flex: 2 },
-  { field: "suggestion", headerName: "LLM Suggestion", flex: 2 },
-];
+// const drawerWidth = 240;
 
 function StudentDashboardTest() {
-  return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Student Performance Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
+  // These hooks and functions must be defined inside your StudentDashboardTest component
+  const [openDialog, setOpenDialog] = useState(false);
+  const handleOpenDialog = () => setOpenDialog(true);
+  const handleCloseDialog = () => setOpenDialog(false);
 
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
-        }}
-      >
-        <Toolbar />
-        <Box sx={{ overflow: "auto" }}>
-          <List>
-            {["Dashboard", "Reports", "Settings"].map((text) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
+  const columns = [
+    { field: "name", headerName: "Name", flex: 1 },
+    { field: "score", headerName: "Score", flex: 1 },
+    { field: "comment", headerName: "Comment", flex: 2 },
+    {
+      field: "suggestion",
+      headerName: "LLM Suggestion",
+      flex: 2,
+      renderCell: () => (
+        <Button variant="outlined" onClick={handleOpenDialog}>
+          View Suggestion
+        </Button>
+      ),
+    },
+  ];
+
+  const students = [
+    {
+      id: 1,
+      name: "Alice",
+      score: 92,
+      comment: "Great improvement!",
+      suggestion: "Default Suggestion",
+    },
+    {
+      id: 2,
+      name: "Bob",
+      score: 75,
+      comment: "Satisfactory performance.",
+      suggestion: "Default Suggestion",
+    },
+    {
+      id: 3,
+      name: "Charlie",
+      score: 59,
+      comment: "Needs improvement.",
+      suggestion: "Default Suggestion",
+    },
+  ];
+
+  return (
+    <React.Fragment>
+    <Box sx={{ display: "flex" }}>
+      
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         <Container maxWidth="lg">
-          <Paper sx={{ height: 400, p: 2 }}>
-            <Typography variant="h6" gutterBottom>
-              Student Scores
-            </Typography>
+
+          <Dialog open={openDialog} onClose={handleCloseDialog}>
+            <DialogTitle>LLM Suggestion</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                This is your suggestion for improvement.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseDialog}>Close</Button>
+            </DialogActions>
+          </Dialog>
+
+          <Typography variant="h6" gutterBottom>
+            Student Scores
+          </Typography>
+          <Paper sx={{ height: 600, width: 700, mt: 2 }}>
             <DataGrid
               rows={students}
               columns={columns}
               pageSize={5}
               rowsPerPageOptions={[5]}
               disableSelectionOnClick
-              sx={{ mt: 2 }}
+              sx={{ height: "100%", width: "100%" }}
             />
           </Paper>
         </Container>
       </Box>
     </Box>
+    </React.Fragment>
   );
 }
 
