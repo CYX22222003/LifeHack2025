@@ -5,11 +5,6 @@ import {
   Button,
   Container,
   CssBaseline,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
   Drawer,
   List,
   ListItem,
@@ -20,12 +15,17 @@ import {
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
+import SuggestionDialog from './SuggestionDialog';
 
 function StudentsTable() {
   const [students, setStudents] = useState([]);
   const [columns, setColumns] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
-  const handleOpenDialog = () => setOpenDialog(true);
+  const [currentStudent, setCurrentStudent] = useState(null);
+  const handleOpenDialog = (name) => {
+    setCurrentStudent(name);
+    setOpenDialog(true);
+  };
   const handleCloseDialog = () => setOpenDialog(false);
 
   useEffect(() => {
@@ -65,8 +65,8 @@ function StudentsTable() {
         field: "suggestion",
         headerName: "LLM Suggestion",
         width: 200,
-        renderCell: () => (
-          <Button variant="outlined" onClick={handleOpenDialog}>
+        renderCell: (params) => (
+          <Button variant="outlined" onClick={() => handleOpenDialog(params.row.name)}>
             View Suggestion
           </Button>
         ),
@@ -78,18 +78,11 @@ function StudentsTable() {
   return (
     <React.Fragment>
       <Toolbar />
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>LLM Suggestion</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            This is your suggestion for improvement.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>Close</Button>
-        </DialogActions>
-      </Dialog>
-
+      <SuggestionDialog 
+        open={openDialog} 
+        onClose={handleCloseDialog}
+        name={currentStudent}  // Pass the selected student
+      />
       <Container sx={{p: 2 }}>
         <Typography variant="h6">
           Student Scores

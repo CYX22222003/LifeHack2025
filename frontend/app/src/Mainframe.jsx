@@ -8,8 +8,8 @@ import StatsVisualizations from './StatsVisualizations';
 import StatsExams from './StatsExams.jsx';
 import { LanguageContextProvider } from './language/LanguageContext';
 import LanguageControlButton from './language/LanguageControlButton';
-import OverallComments from './OverallComments.jsx';
-const drawerWidth = 240;
+
+// const drawerWidth = 240;
 export default function Mainframe() {
     return (
         <React.Fragment>
