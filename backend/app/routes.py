@@ -17,8 +17,7 @@ def get_all():
     """
     Gets basic information (name, gender, feedback, scores) of students to display in the dashboard.
     """
-    # pass
-    return jsonify(current_app.dl)
+    return jsonify(current_app.dl.students)
 
 @api.route("/general", methods=["GET"])
 def get_general():
@@ -33,7 +32,7 @@ def get_stats():
     Stats for assessments used in (json, a list of score for each assessments) for visualization in dashboard
     e.g. exams: [{finals: {scores: [....]}}]
     """
-    pass
+    return jsonify(current_app.dl.get_all_exams())
 
 @api.route("/student/<student_id>", methods=["GET"])
 def get(student_id):
