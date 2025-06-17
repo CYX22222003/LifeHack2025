@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'; // Added missing imports
-import { LineChart } from '@mui/x-charts/LineChart';
+import { BarChart } from '@mui/x-charts/BarChart';
 import axios from "axios";
 import { CircularProgress, Alert } from '@mui/material'; // Added for loading/error states
 
@@ -51,7 +51,7 @@ export default function StatsVisualizations() {
   }
 
   return (
-    <LineChart
+    <BarChart
       xAxis={[{
         data: chartData.examTypes,
         label: 'Exam Type',

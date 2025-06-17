@@ -5,6 +5,7 @@ import { ThemeContextProvider } from './theme/ThemeContext';
 import ThemeControlButton from './theme/ThemeControlButton';
 import StudentsTable from './StudentsTable';
 import StatsVisualizations from './StatsVisualizations';
+import StatsExams from './StatsExams.jsx';
 import { LanguageContextProvider } from './language/LanguageContext';
 import LanguageControlButton from './language/LanguageControlButton';
 const drawerWidth = 240;
@@ -24,7 +25,7 @@ export default function Mainframe() {
                                 <LanguageControlButton />
                             </Toolbar>
                         </AppBar>
-                        <Drawer
+                        {/* <Drawer
                             variant="permanent"
                             sx={{
                                 width: drawerWidth,
@@ -42,10 +43,11 @@ export default function Mainframe() {
                                     ))}
                                 </List>
                             </Box>
-                        </Drawer>
+                        </Drawer> */}
                         <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
                             <StatsVisualizations />
                             <StudentsTable />
+                            <StatsExams/>
                         </Box>
                     </Box>
                 </ThemeContextProvider>
