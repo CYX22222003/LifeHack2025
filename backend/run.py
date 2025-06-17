@@ -1,4 +1,5 @@
 from app import create_app
+from app.DataLoader import DataLoader
 
 app = create_app()
 

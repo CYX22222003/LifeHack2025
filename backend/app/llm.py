@@ -13,7 +13,7 @@ from langchain.schema.output_parser import StrOutputParser
 
 teacher_start_prompt = "I am a teacher. "
 student_start_prompt = "This is a student. "
-teacher_end_prompt = "Provide a concise feedback to my teaching in one short paragraph. "
+teacher_end_prompt = "Provide a concise feedback to my teaching, including pace and difficulty, in one short paragraph. "
 student_end_prompt = "Provide a concise feedback to this student\'s performance in one short paragraph. "
 
 model = init_chat_model("gemini-2.0-flash", model_provider="google_genai")

@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request, current_app
 import json
+from . import llm
 
 api = Blueprint("api", __name__, url_prefix="/api")
 
@@ -24,7 +25,8 @@ def get_general():
     """
     Gets LLM-generated overall feedback/comment on pace, difficulty, overall performance and suggestions
     """
-    pass
+    return jsonify(llm.get_all_dist_feedback(current_app.dl.get_distribution_text_all()))
+
 
 @api.route("/stats", methods=["GET"])
 def get_stats():
@@ -34,11 +36,11 @@ def get_stats():
     """
     return jsonify(current_app.dl.get_all_exams())
 
-@api.route("/student/<student_id>", methods=["GET"])
-def get(student_id):
+@api.route("/student/<student_name>", methods=["GET"])
+def get(student_name):
     """
     Personalized information for individual student
     Extracts students information for the context of LLM prompt
     """
-    # You can now use the student_id URL parameter in your logic
-    pass
+    return jsonify(llm.get_student_feedback(current_app.dl.get_student_text(student_name)))
+    

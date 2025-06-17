@@ -94,7 +94,16 @@ class DataLoader:
         for student in self.students:
             result += self.get_student_text(student['name'])
         return result
-    
+
+
+if __name__ == "__main__":
+    ## Test for dataloader
+    dl = DataLoader("SampleData.json")
+    print(dl.get_distribution_text_all())
+    print('-------------------------------------')
+    print(dl.get_all_student_text())
+    print('-------------------------------------')
+    print(dl.get_all_exams())
 
     
 
