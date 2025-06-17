@@ -95,13 +95,6 @@ class DataLoader:
             result += self.get_student_text(student['name'])
         return result
     
-## Test for dataloader
-dl = DataLoader("SampleData.json")
-print(dl.get_distribution_text_all())
-print('-------------------------------------')
-print(dl.get_all_student_text())
-print('-------------------------------------')
-print(dl.get_all_exams())
 
     
 
