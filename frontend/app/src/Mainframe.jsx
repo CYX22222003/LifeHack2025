@@ -3,6 +3,7 @@ import StudentDashboardTest from './StudentDashboardTest'
 import { CssBaseline, Box, Toolbar, Typography, AppBar, Drawer, List, ListItem, ListItemText, Container, Paper } from "@mui/material";
 import { ThemeContextProvider } from './theme/ThemeContext';
 import ThemeControlButton from './theme/ThemeControlButton';
+import StudentsTable from './StudentsTable';
 
 const drawerWidth = 240;
 export default function Mainframe() {
@@ -39,7 +40,7 @@ export default function Mainframe() {
           </List>
         </Box>
       </Drawer>
-      <StudentDashboardTest />
+      <StudentsTable />
     </Box>
     </ThemeContextProvider>
     </React.Fragment>

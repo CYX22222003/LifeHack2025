@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Box,
+  Button,
   Container,
   CssBaseline,
+  Dialog,
+  DialogTitle, 
+  DialogContent, 
+  DialogContentText, 
+  DialogActions, 
   Drawer,
   List,
   ListItem,
@@ -20,6 +26,9 @@ const drawerWidth = 240;
 function StudentsTable() {
   const [students, setStudents] = useState([]);
   const [columns, setColumns] = useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
+  const handleOpenDialog = () => setOpenDialog(true);
+  const handleCloseDialog = () => setOpenDialog(false);
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/students").then((res) => {
@@ -55,7 +64,17 @@ function StudentsTable() {
         { field: `${exam}_feedback`, headerName: `${exam} Feedback`, width: 180 },
       ]);
 
-      setColumns([...staticCols, ...examCols]);
+      const buttonCols = [{
+        field: "suggestion",
+        headerName: "LLM Suggestion",
+        width: 200,
+        renderCell: () => (
+          <Button variant="outlined" onClick={handleOpenDialog}>
+            View Suggestion
+          </Button>
+        ),
+      }]
+      setColumns([...staticCols, ...examCols, ...buttonCols]);
     });
   }, []);
 
@@ -69,6 +88,18 @@ function StudentsTable() {
           </Typography>
         </Toolbar>
       </AppBar>
+
+      <Dialog open={openDialog} onClose={handleCloseDialog}>
+        <DialogTitle>LLM Suggestion</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            This is your suggestion for improvement.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog}>Close</Button>
+        </DialogActions>
+      </Dialog>
 
       <Drawer
         variant="permanent"

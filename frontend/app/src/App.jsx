@@ -18,7 +18,6 @@ function App() {
       textAlign: "center",
     }}>
     <Mainframe />
-    <StudentsTable/>
     </Container>
   )
 }
