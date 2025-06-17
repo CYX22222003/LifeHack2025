@@ -13,28 +13,26 @@ import OverallComments from './OverallComments.jsx';
 export default function Mainframe() {
     return (
         <React.Fragment>
-            <LanguageContextProvider>
-                <ThemeContextProvider>
-                    <Box sx={{ display: "flex", alignContent: "center"}}>
-                        <CssBaseline />
-                        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-                            <Toolbar sx={{ justifyContent: "flex-start" }}>
-                                <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
-                                    Student Performance Dashboard
-                                </Typography>
-                                <ThemeControlButton />
-                                <LanguageControlButton />
-                            </Toolbar>
-                        </AppBar>
-                        
-                        <Box sx={{ display: "flex", flexDirection: "column", width: "100%", gap: 5}}>
-                            <StudentsTable />
-                            <StatsExams />
-                            <OverallComments />
-                        </Box>
+            <ThemeContextProvider>
+                <Box sx={{ display: "flex", alignContent: "center" }}>
+                    <CssBaseline />
+                    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+                        <Toolbar sx={{ justifyContent: "flex-start" }}>
+                            <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
+                                Student Performance Dashboard
+                            </Typography>
+                            <ThemeControlButton />
+                            {/* <LanguageControlButton /> */}
+                        </Toolbar>
+                    </AppBar>
+
+                    <Box sx={{ display: "flex", flexDirection: "column", width: "100%", gap: 5 }}>
+                        <StudentsTable />
+                        <StatsExams />
+                        <OverallComments />
                     </Box>
-                </ThemeContextProvider>
-            </LanguageContextProvider>
+                </Box>
+            </ThemeContextProvider>
         </React.Fragment>
     );
 }
