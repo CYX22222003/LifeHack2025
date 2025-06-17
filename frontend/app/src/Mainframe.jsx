@@ -4,6 +4,7 @@ import { CssBaseline, Box, Toolbar, Typography, AppBar, Drawer, List, ListItem, 
 import { ThemeContextProvider } from './theme/ThemeContext';
 import ThemeControlButton from './theme/ThemeControlButton';
 import StudentsTable from './StudentsTable';
+import StatsVisualizations from './StatsVisualizations';
 import { LanguageContextProvider } from './language/LanguageContext';
 import LanguageControlButton from './language/LanguageControlButton';
 const drawerWidth = 240;
@@ -42,7 +43,10 @@ export default function Mainframe() {
                                 </List>
                             </Box>
                         </Drawer>
-                        <StudentsTable />
+                        <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
+                            <StatsVisualizations />
+                            <StudentsTable />
+                        </Box>
                     </Box>
                 </ThemeContextProvider>
             </LanguageContextProvider>

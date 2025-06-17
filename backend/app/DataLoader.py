@@ -18,7 +18,20 @@ class DataLoader:
         median = np.median(scores_array)
         upper_q = np.percentile(scores_array, 75)
         high = np.max(scores_array)
-        return [low, lower_q, median, upper_q, high]
+        #return [low, lower_q, median, upper_q, high]
+        np_list = [low, lower_q, median, upper_q, high]
+        normal_list = [x.tolist() for x in np_list]
+        return normal_list
+    
+    def get_distribution_all(self):
+        all_quartiles = {}
+        exam_names = set()
+        for student in self.students:
+            exam_names.update(student["exams"].keys())
+        for exam in exam_names:
+            all_quartiles[exam] = self.get_distribution(exam)
+        print(all_quartiles)
+        return all_quartiles
     
     def get_score(self, name, exam_name):
         for student in self.students:
