@@ -8,6 +8,7 @@ import StatsVisualizations from './StatsVisualizations';
 import StatsExams from './StatsExams.jsx';
 import { LanguageContextProvider } from './language/LanguageContext';
 import LanguageControlButton from './language/LanguageControlButton';
+import OverallComments from './OverallComments.jsx';
 const drawerWidth = 240;
 export default function Mainframe() {
     return (
@@ -47,8 +48,12 @@ export default function Mainframe() {
                         <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
                             <StatsVisualizations />
                             <StudentsTable />
-                            <StatsExams/>
+                            <StatsExams />
+                            <OverallComments />
                         </Box>
+
+
+
                     </Box>
                 </ThemeContextProvider>
             </LanguageContextProvider>
