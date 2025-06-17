@@ -2,6 +2,7 @@
   "students": [
     {
       "name": "Alice",
+      "gender": "female",
       "exams": {
         "midterm": {
           "score": 85,
@@ -19,6 +20,7 @@
     },
     {
       "name": "Bob",
+      "gender": "male",
       "exams": {
         "midterm": {
           "score": 78,
@@ -36,6 +38,7 @@
     },
     {
       "name": "Charlie",
+      "gender": "male",
       "exams": {
         "midterm": {
           "score": 92,
@@ -53,6 +56,7 @@
     },
     {
       "name": "Diana",
+      "gender": "female",
       "exams": {
         "midterm": {
           "score": 70,
@@ -70,6 +74,7 @@
     },
     {
       "name": "Ethan",
+      "gender": "male",
       "exams": {
         "midterm": {
           "score": 88,
@@ -87,6 +92,7 @@
     },
     {
       "name": "Fiona",
+      "gender": "female",
       "exams": {
         "midterm": {
           "score": 65,
@@ -104,6 +110,7 @@
     },
     {
       "name": "George",
+      "gender": "male",
       "exams": {
         "midterm": {
           "score": 91,
@@ -121,6 +128,7 @@
     },
     {
       "name": "Hannah",
+      "gender": "female",
       "exams": {
         "midterm": {
           "score": 77,
@@ -138,6 +146,7 @@
     },
     {
       "name": "Ian",
+      "gender": "male",
       "exams": {
         "midterm": {
           "score": 83,
@@ -155,6 +164,7 @@
     },
     {
       "name": "Jade",
+      "gender": "male",
       "exams": {
         "midterm": {
           "score": 89,
