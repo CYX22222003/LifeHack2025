@@ -31,7 +31,7 @@ function StudentsTable() {
   const handleCloseDialog = () => setOpenDialog(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/students").then((res) => {
+    axios.get("http://127.0.0.1:5000/api/students").then((res) => {
       const raw = res.data;
 
       // Flatten data and generate rows

@@ -1,8 +1,11 @@
 from flask import Blueprint, jsonify, request, current_app
 import json
+
+from flask_cors import CORS
 from . import llm
 
 api = Blueprint("api", __name__, url_prefix="/api")
+CORS(api)  # Apply CORS to this blueprint
 
 @api.route("/hello", methods=["GET"])
 def hello():
