@@ -14,18 +14,27 @@ const StatsExams = () => {
   const [examData, setExamData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [distributionData, setDistributionData] = useState({});
 
   useEffect(() => {
-    axios
-      .get('http://127.0.0.1:5000/api/stats')
-      .then((res) => {
-        setExamData(res.data);
+    const fetchAllData = async () => {
+      try {
+        const [examRes, distributionRes] = await Promise.all([
+          axios.get('http://127.0.0.1:5000/api/stats'),
+          axios.get('http://127.0.0.1:5000/api/distributions')
+        ]);
+
+        setExamData(examRes.data);
+        setDistributionData(distributionRes.data);
         setLoading(false);
-      })
-      .catch(() => {
-        setError('Failed to fetch exam data');
+      } catch (err) {
+        console.error(err);
+        setError('Failed to fetch exam or distribution data');
         setLoading(false);
-      });
+      }
+    };
+
+    fetchAllData();
   }, []);
 
   // Helper: Group scores into bins (e.g., 60-69, 70-79, etc.)
@@ -55,6 +64,9 @@ const StatsExams = () => {
 
   const renderHistogram = ({ exam, scores }) => {
     const histogramData = createHistogramData(scores);
+    const summary = distributionData[exam] || [];
+    const binLabels = histogramData.map(d => d.bin);
+    const [, q1, median, q3] = summary;
 
     return (
       <Grid item xs={12} md={4} key={exam}>
@@ -62,12 +74,20 @@ const StatsExams = () => {
           <Typography variant="h6" align="center" gutterBottom>
             {exam.charAt(0).toUpperCase() + exam.slice(1)} Score Distribution
           </Typography>
+
           <BarChart
-            xAxis={[{ scaleType: 'band', data: histogramData.map(d => d.bin) }]}
+            xAxis={[{ scaleType: 'band', data: binLabels }]}
             series={[{ data: histogramData.map(d => d.count), label: 'Frequency', color: '#0288d1' }]}
             width={400}
             height={300}
           />
+
+          {/* 👇 Text summary below chart */}
+          {summary.length === 5 && (
+            <Typography variant="body2" align="center" sx={{ mt: 1 }}>
+              Lower Quantile: {q1}, Median: {median}, Upper Quantile: {q3}
+            </Typography>
+          )}
         </Paper>
       </Grid>
     );
@@ -96,6 +116,7 @@ const StatsExams = () => {
           {examData.map(renderHistogram)}
         </Grid>
       )}
+
     </Container>
   );
 };
