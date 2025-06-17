@@ -2,7 +2,7 @@
 import { createContext, useMemo, useState, useContext } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const ColorModeContext = createContext();
+const ColorModeContext = createContext('light');
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useColorMode = () => useContext(ColorModeContext);
