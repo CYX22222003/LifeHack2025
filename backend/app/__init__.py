@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
-from routes import api
-import DataLoader
+from .routes import api
+from .DataLoader import DataLoader
 
 def create_app():
     app = Flask(__name__)
