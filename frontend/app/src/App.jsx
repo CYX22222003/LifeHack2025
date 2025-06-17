@@ -14,9 +14,9 @@ function App() {
   return (
     <Container sx={{
       maxWidth: 1280,
-      margin: "0 auto",
       padding: "2rem",
       textAlign: "center",
+      alignItems: "center"
     }}>
       <Mainframe />
     </Container>
