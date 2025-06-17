@@ -39,6 +39,10 @@ def get_stats():
     """
     return jsonify(current_app.dl.get_all_exams())
 
+@api.route("/distributions", methods=["GET"])
+def get_distributions():
+    return jsonify(current_app.dl.get_distribution_all())
+
 @api.route("/student/<student_name>", methods=["GET"])
 def get(student_name):
     """
