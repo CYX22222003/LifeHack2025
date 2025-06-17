@@ -5,11 +5,6 @@ import {
   Button,
   Container,
   CssBaseline,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
   Drawer,
   List,
   ListItem,
@@ -83,18 +78,11 @@ function StudentsTable() {
   return (
     <React.Fragment>
       <Toolbar />
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>LLM Suggestion</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            This is your suggestion for improvement.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>Close</Button>
-        </DialogActions>
-      </Dialog>
-
+      <SuggestionDialog 
+        open={openDialog} 
+        onClose={handleCloseDialog}
+        name={currentStudent}  // Pass the selected student
+      />
       <Container sx={{p: 2 }}>
         <Typography variant="h6">
           Student Scores
