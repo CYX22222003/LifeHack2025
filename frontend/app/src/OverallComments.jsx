@@ -32,7 +32,6 @@ export default function OverallComments() {
                 p: 2,
                 border: '1px dashed grey',
                 borderRadius: 2,
-                backgroundColor: '#f9f9f9',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
