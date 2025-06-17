@@ -24,7 +24,7 @@ export default function Mainframe() {
                                 <LanguageControlButton />
                             </Toolbar>
                         </AppBar>
-                        <Drawer
+                        {/* <Drawer
                             variant="permanent"
                             sx={{
                                 width: drawerWidth,
@@ -42,7 +42,7 @@ export default function Mainframe() {
                                     ))}
                                 </List>
                             </Box>
-                        </Drawer>
+                        </Drawer> */}
                         <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
                             <StatsVisualizations />
                             <StudentsTable />
